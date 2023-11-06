@@ -1,0 +1,92 @@
+{
+  "realEstates": [
+    {
+      "id": 1,
+      "name": "Luxury Apartment",
+      "address": "123 Main St",
+      "price": 1000000,
+      "area": 2000,
+      "bedroom": 3,
+      "bathroom": 2,
+      "description": "This luxurious apartment is located in the heart of the city and features stunning views of the skyline.",
+      "image": "https://example.com/luxury-apartment.jpg",
+      "type": "Apartment",
+      "status": "For Sale"
+    },
+    {
+      "id": 2,
+      "name": "Cozy Cottage",
+      "address": "456 Elm St",
+      "price": 500000,
+      "area": 1500,
+      "bedroom": 2,
+      "bathroom": 1,
+      "description": "This charming cottage is nestled in a quiet neighborhood and features a beautiful garden.",
+      "image": "https://example.com/cozy-cottage.jpg",
+      "type": "House",
+      "status": "For Sale"
+    },
+    {
+      "id": 3,
+      "name": "Luxury Apartment",
+      "address": "123 Main St",
+      "price": 1000000,
+      "area": 2000,
+      "bedroom": 3,
+      "bathroom": 2,
+      "description": "This luxurious apartment is located in the heart of the city and features stunning views of the skyline.",
+      "image": "https://example.com/luxury-apartment.jpg",
+      "type": "Apartment",
+      "status": "For Sale"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "phone": "555-555-5555",
+      "address": "789 Oak St"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "username": "janesmith",
+      "password": "password456",
+      "phone": "555-555-5555",
+      "address": "321 Maple St"
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "email": "blabla@gmail.com",
+      "username": "johndoe",
+      "password": "password123",
+      "phone": "555-555-5555",
+      "address": "789 Oak St"
+    }
+  ],
+  "demographicData": [
+    {
+      "id": 1,
+      "population": 1000000,
+      "populationDensity": 5000,
+      "location": "New York City"
+    },
+    {
+      "id": 2,
+      "population": 500000,
+      "populationDensity": 2500,
+      "location": "Los Angeles"
+    },
+    {
+      "id": 3,
+      "population": 1000000,
+      "populationDensity": 5000,
+      "location": "New York City"
+    }
+  ]
+}
