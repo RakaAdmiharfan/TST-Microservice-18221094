@@ -1,9 +1,10 @@
 {
-  "realEstates": [
+  "realEstate": [
     {
       "id": 1,
       "name": "Luxury Apartment",
       "address": "123 Main St",
+      "location": "New York City",
       "price": 1000000,
       "area": 2000,
       "bedroom": 3,
@@ -17,6 +18,7 @@
       "id": 2,
       "name": "Cozy Cottage",
       "address": "456 Elm St",
+      "location": "New York City",
       "price": 500000,
       "area": 1500,
       "bedroom": 2,
@@ -30,6 +32,7 @@
       "id": 3,
       "name": "Luxury Apartment",
       "address": "123 Main St",
+      "location": "Los Angeles",
       "price": 1000000,
       "area": 2000,
       "bedroom": 3,
@@ -40,7 +43,7 @@
       "status": "For Sale"
     }
   ],
-  "users": [
+  "user": [
     {
       "id": 1,
       "name": "John Doe",
@@ -71,21 +74,18 @@
   ],
   "demographicData": [
     {
-      "id": 1,
       "population": 1000000,
       "populationDensity": 5000,
       "location": "New York City"
     },
     {
-      "id": 2,
       "population": 500000,
       "populationDensity": 2500,
       "location": "Los Angeles"
     },
     {
-      "id": 3,
       "population": 1000000,
-      "populationDensity": 5000,
+      "populationDensity": 10000,
       "location": "New York City"
     }
   ]

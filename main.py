@@ -38,63 +38,63 @@ with open('main.json', 'r') as myfile:
     data=myfile.read()
 
 # Parse JSON
-obj = json.loads(data)
+data = json.loads(data)
 
-# Get Data
-realEstateData = obj['realEstate']
-userData = obj['user']
-demographicData = obj['demographicData']
-
-# Get All Real Estate Data
-@app.get("/realEstate")
-async def getRealEstate():
-    return realEstateData
-
-# Get Real Estate Data by ID
-@app.get("/realEstate/{id}")
-async def getRealEstateById(id: int):
-    for i in realEstateData:
-        if i['id'] == id:
-            return i
-    return {"message": "Data not found"}
+# Landing page
+@app.get('/')
+async def root():
+    return {"message": "Welcome to Real Estate API"}
 
 # Get All User Data
-@app.get("/user")
-async def getUser():
-    return userData
+@app.get('/user')
+async def getAllUser():
+    return data['user']
+
+# Get All Demographic Data
+@app.get('/demographicData')
+async def getAllDemographicData():
+    return data['demographicData']
+
+# Get All Real Estate Data
+@app.get('/realEstate')
+async def getAllRealEstate():
+    return data['realEstate']
 
 # Get User Data by ID
 @app.get("/user/{id}")
 async def getUserById(id: int):
-    for i in userData:
-        if i['id'] == id:
-            return i
+    for user in data['user']:
+        if user['id'] == id:
+            return user
     return {"message": "Data not found"}
 
-# Get All Demographic Data
-@app.get("/demographicData")
-async def getDemographicData():
-    return demographicData
+# Get realEstate Data by ID
+@app.get("/realEstate/{id}")
+async def getRealEstateById(id: int):
+    for realEstate in data['realEstate']:
+        if realEstate['id'] == id:
+            return realEstate
+    return {"message": "Data not found"}
 
-# Get Demographic Data by ID
-@app.get("/demographicData/{id}")
-async def getDemographicDataById(id: int):
-    for i in demographicData:
-        if i['id'] == id:
-            return i
+# Get Demographic Data by Location
+@app.get("/demographicData/{location}")
+async def getDemographicDataByLocation(location: str):
+    for demographicData in data['demographicData']:
+        if demographicData['location'] == location:
+            return demographicData
     return {"message": "Data not found"}
 
 # Add Real Estate Data
 @app.post("/realEstate")
 async def addRealEstate(data: realEstate):
-    realEstateData.append(data.dict())
-    return realEstateData[-1]
+    realEstate.append(data.dict())
+    return realEstate[-1]
 
 # Add User Data
 @app.post("/user")
 async def addUser(data: user):
-    userData.append(data.dict())
-    return userData[-1]
+    user.append(data.dict())
+    return user[-1]
 
 # Add Demographic Data
 @app.post("/demographicData")
@@ -105,18 +105,18 @@ async def addDemographicData(data: demographicData):
 # Update Real Estate Data
 @app.put("/realEstate/{id}")
 async def updateRealEstate(id: int, data: realEstate):
-    for i in range(len(realEstateData)):
-        if realEstateData[i]['id'] == id:
-            realEstateData[i] = data.dict()
+    for i in range(len(realEstate)):
+        if realEstate[i]['id'] == id:
+            realEstate[i] = data.dict()
             return {"message": "Data updated successfully"}
     return {"message": "Data not found"}
 
 # Update User Data
 @app.put("/user/{id}")
 async def updateUser(id: int, data: user):
-    for i in range(len(userData)):
-        if userData[i]['id'] == id:
-            userData[i] = data.dict()
+    for i in range(len(user)):
+        if user[i]['id'] == id:
+            user[i] = data.dict()
             return {"message": "Data updated successfully"}
     return {"message": "Data not found"}
 
@@ -132,18 +132,18 @@ async def updateDemographicData(id: int, data: demographicData):
 # Delete Real Estate Data
 @app.delete("/realEstate/{id}")
 async def deleteRealEstate(id: int):
-    for i in range(len(realEstateData)):
-        if realEstateData[i]['id'] == id:
-            del realEstateData[i]
+    for i in range(len(realEstate)):
+        if realEstate[i]['id'] == id:
+            del realEstate[i]
             return {"message": "Data deleted successfully"}
     return {"message": "Data not found"}
 
 # Delete User Data
 @app.delete("/user/{id}")
 async def deleteUser(id: int):
-    for i in range(len(userData)):
-        if userData[i]['id'] == id:
-            del userData[i]
+    for i in range(len(user)):
+        if user[i]['id'] == id:
+            del user[i]
             return {"message": "Data deleted successfully"}
     return {"message": "Data not found"}
 
@@ -154,28 +154,4 @@ async def deleteDemographicData(id: int):
         if demographicData[i]['id'] == id:
             del demographicData[i]
             return {"message": "Data deleted successfully"}
-    return {"message": "Data not found"}
-
-# Get Real Estate Data by Type
-@app.get("/realEstate/type/{type}")
-async def getRealEstateByType(type: str):
-    for i in realEstateData:
-        if i['type'] == type:
-            return i
-    return {"message": "Data not found"}
-
-# Get Real Estate Data by Status
-@app.get("/realEstate/status/{status}")
-async def getRealEstateByStatus(status: str):
-    for i in realEstateData:
-        if i['status'] == status:
-            return i
-    return {"message": "Data not found"}
-
-# Get Real Estate Data by Price
-@app.get("/realEstate/price/{price}")
-async def getRealEstateByPrice(price: int):
-    for i in realEstateData:
-        if i['price'] == price:
-            return i
     return {"message": "Data not found"}
